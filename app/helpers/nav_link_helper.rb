@@ -102,7 +102,7 @@ module NavLinkHelper
     end
 
     def controller_for(path)
-      Rails.application.routes.recognize_path(path)[:controller]
+      Rails.application.routes.recognize_path(path, method: @request.method)[:controller]
     rescue ActionController::RoutingError
       nil
     end
